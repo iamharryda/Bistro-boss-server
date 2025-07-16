@@ -1,5 +1,7 @@
 # 🍽️ Bistro Boss Server – RESTful Backend API (Express + MongoDB)
 
+🚀 **Live Demo:** [https://bistro-boss-server-with-auth-gold.vercel.app/](https://bistro-boss-server-with-auth-gold.vercel.app/)
+
 This is the **backend server** for the [Bistro Boss Client](https://github.com/iamharryda/bistro-boss-client) restaurant management app. Built with **Node.js**, **Express.js**, and **MongoDB**, this RESTful API handles authentication, authorization, user roles, menu management, cart operations, and admin functions.
 
 ---
