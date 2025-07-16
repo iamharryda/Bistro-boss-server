@@ -1,41 +1,96 @@
-# Bistro Boss Server with Auth
-Client Repo Link - [bistro-boss-client-with-auth](https://github.com/ProgrammingHero1/bistro-boss-client-with-auth)
+# 🍽️ Bistro Boss Server – RESTful Backend API (Express + MongoDB)
 
-<i> Today we did not work on This . It is same as the previous work changes . </i> 
-## Overview
-BistroBoss is a comprehensive restaurant management system designed to streamline operations, enhance customer experience, and improve overall efficiency. The system leverages modern web technologies to provide a robust, scalable, & high-performance solution for managing complex data structures and interactions within a restaurant environment.
+This is the **backend server** for the [Bistro Boss Client](https://github.com/iamharryda/bistro-boss-client) restaurant management app. Built with **Node.js**, **Express.js**, and **MongoDB**, this RESTful API handles authentication, authorization, user roles, menu management, cart operations, and admin functions.
 
-## API End Points 
+---
 
-### Menu
-- GET /menu: Retrieve all menu items.
+## 🚀 Features
 
-```js
-app.get('/menu', async (req, res) => {
-    const result = await menuCollection.find().toArray();
-    res.send(result);
-});
+- 🔐 JWT Authentication
+- 👥 Role-Based Access Control (Admin/User)
+- 🧾 Secure API Routes
+- 🍽️ Menu CRUD (Create, Read, Update, Delete)
+- 🛒 Cart and Order Management
+- 📊 Admin Statistics
+- 🌐 CORS + Environment Config
+- 💳 Payment integration with stripe
+
+---
+
+## 🛠️ Tech Stack
+
+| Tool/Library   | Purpose                        |
+| -------------- | ------------------------------ |
+| Express.js     | Web framework                  |
+| MongoDB        | Database                       |
+| Mongoose       | ODM for MongoDB                |
+| Firebase Admin | Verify Firebase tokens         |
+| JWT            | Authentication                 |
+| dotenv         | Manage environment variables   |
+| cors           | Cross-Origin requests          |
+| nodemon        | Auto-reload during development |
+| stripe         | payment gateway                |
+
+---
+
+## 📦 Getting Started
+
+> 💡 Prerequisites: Node.js, npm, MongoDB URI, Firebase Admin SDK credentials
+
+### 1. Clone the repository
+
+Clone the project using Git:
+
+```bash
+git clone https://github.com/iamharryda/Bistro-boss-server.git
+cd Bistro-boss-server
 ```
-### Reviews
-GET /reviews: Retrieve all reviews.
 
-```js
-app.get('/reviews', async (req, res) => {
-    const result = await reviewCollection.find().toArray();
-    res.send(result);
-});
+### 2. install dependencies
+
+Install the required packages:
+
+```bash
+npm intall
 ```
 
+### 3. Configure environment variables
 
-## Technologies Used
+Create a .env file in the root directory and add your environment-specific variables:
 
-### MongoDB
-MongoDB is a NoSQL database that stores data in flexible, JSON-like documents. It offers:
+```bash
+DB_URI = your mongodb uri
+ACCESS_TOKEN_SECRET=your jwt token
+STRIPE_SECRET_KEY= your stripe secret key
+```
 
+⚠️ Do not commit your .env file to source control. Keep it private.
 
-### Express.js
-Express.js is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It simplifies the development process with:
+### 4. Start the server
 
+```bash
+nodemon index.js
+```
 
-### CORS (Cross-Origin Resource Sharing)
-CORS is a mechanism that allows restricted resources on a web page to be requested from another domain. This is crucial for enabling the frontend of BistroBoss to communicate with the backend server by:
+Or start in production mode:
+
+```bash
+npm run start
+```
+
+the surver will run on
+
+```bash
+http://localhost:5000
+
+```
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🙋‍♂️ Author
+
+Built with ❤️ by [@iamharryda](https://github.com/iamharryda)
