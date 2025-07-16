@@ -242,11 +242,33 @@ async function run() {
       res.send(result);
     });
 
-    app.get("/payments", verifyToken, verifyAdmin, async (req, res) => {
+    app.get("/payments", verifyToken, async (req, res) => {
       console.log(req.headers);
 
       const result = await paymentCollection.find().toArray();
       res.send(result);
+    });
+
+    // changing the status to "done"
+
+    app.patch("/payments/status/:id", verifyToken, async (req, res) => {
+      const id = req.params.id;
+      const { status } = req.body;
+
+      try {
+        const result = await paymentCollection.updateOne(
+          { _id: new ObjectId(id) },
+          { $set: { status: status || "done" } }
+        );
+
+        if (result.modifiedCount > 0) {
+          res.send(result);
+        } else {
+          res.status(404).send({ success: false, message: "Payment not found or already updated" });
+        }
+      } catch (error) {
+        res.status(500).send({ success: false, message: "Error updating status", error });
+      }
     });
 
     // stats or analytics
